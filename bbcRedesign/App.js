@@ -1,12 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import Card from './components/Card';
 import Header from './components/Header';
 
 export default function App() {
   return (
     <View style={styles.container} >
       <Header></Header>
-      <Text>Open up App.js to start working on your app!</Text>
+      <ScrollView>
+          <View>
+            <Card title="Titulo" descr="Description">
+                <Image style={{width:"100%", height:200}} source={{uri: "https://picsum.photos/300/600?random=1" }}/>
+            </Card>
+          </View>
+
+          <View style={styles.cardFlex2}>
+              <View>
+                <Card title="Titulo" descr="Description">
+                    <Image style={{width:"100%", height:200}} source={{uri: "https://picsum.photos/300/600?random=1" }}/>
+                </Card>
+              </View>
+              <View>
+                <Card title="Titulo" descr="Description">
+                    <Image style={{width:"100%", height:200}} source={{uri: "https://picsum.photos/300/600?random=1" }}/>
+                </Card>
+              </View>
+          </View>
+          
+      </ScrollView>
       <StatusBar style="auto" />
     </View>
   );
@@ -14,7 +35,14 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#ccc'
+  },
+  cardFlex2:{
+    flex:2,
+    width: "100%",
+    justifyContent: "center",
+    marginTop: 20,
+    flexDirection: "row",
+    justifyContent: "space-evenly"
   },
 });
